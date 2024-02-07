@@ -3,19 +3,20 @@ const axios = require('axios');
 const app = express();
 var bodyParser = require('body-parser');
 
-const base_url = "https://localhost:3000"
+const base_url = "https://localhost:5500"
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
-app.use(express.static(_dirname + '/public'));
+
+app.use(express.static(__dirname + '/public'));
 
 app.get("/", async (req,res)=>{
     try{
         const response = await axios.get(base_url + '/books');
         res.render("books", {books: response.data});
     } catch(err){
-        console.err(err);
+        console.error(err);
         res.status(500).send('Error');
     }
 });
@@ -25,7 +26,7 @@ app.get("/books/:id", async (req,res)=>{
         const response = await axios.get(base_url + '/books/'+ req.params.id);
         res.render("books", {books: response.data});
     } catch(err){
-        console.err(err);
+        console.error(err);
         res.status(500).send('Error');
     }
 });
@@ -40,7 +41,7 @@ app.post("/create", async (req,res)=>{
         await axios.post(base_url + '/books', data);
         res.redirect("/");
     } catch(err){
-        console.err(err);
+        console.error(err);
         res.status(500).send('Error');
     }
 });
@@ -50,7 +51,7 @@ app.post("/update/:id", async (req,res)=>{
         const response = await axios.get(base_url + '/books/'+ req.params.id);
         res.render("books", {books: response.data});
     } catch(err){
-        console.err(err);
+        console.error(err);
         res.status(500).send('Error');
     }
 });
@@ -61,7 +62,7 @@ app.post("/update/:id", async (req,res)=>{
         await axios.put(base_url + '/books/' + req.params.id, data);
         res.redirect("/");
     } catch(err){
-        console.err(err);
+        console.error(err);
         res.status(500).send('Error');
     }
 });
@@ -71,7 +72,7 @@ app.get("/delete/:id", async (req,res)=>{
         await axios.delete(base_url + '/books/'+ req.params.id);
         res.redirect("/");
     } catch(err){
-        console.err(err);
+        console.error(err);
         res.status(500).send('Error');
     }
 });
