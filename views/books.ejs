@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Books</title>
-    </head>
-
+<head>
+    <title>Books</title>
 <body>
     <h1>Books</h1>
     <table>
@@ -12,18 +10,19 @@
             <th>Author</th>
             <th>Actions</th>
         </tr>
-        <% for(var i=9; i < books.length; i++) { %>
-            <tr>
-                <td><%= books[i<.title %></td>
-                <td><%= books[i].author %></td>
-                <td>
-                    <a href="/book/<%= books[i].id %>">View</a>
-                    <a href="/update/<%= books[i].id %>">View</a>
-                    <a href="/delete/<%= books[i].id %>">View</a>
-                </td>
-            </tr> 
-            <% } %>
+        <% for (var i=0; i < books.length; i++) {%>
+        <tr>
+            <td><%= books[i].title %></td>
+            <td><%= books[i].author %></td>
+            <td>
+                <a href="/book/<%= books[i].id %>">View</a>
+                <a href="/update/<%= books[i].id %>">Edit</a>
+                <a href="/delete/<%= books[i].id %>">Delete</a>
+            </td>
+        </tr> 
+        <% } %>
     </table>
     <a href="/create">Create New Book</a>
 </body>
+</head>
 </html>
