@@ -1,18 +1,22 @@
-const express = require("express");
-const axios = require("axios");
+const express = require('express');
+const axios = require('axios');
 const app = express();
 const path = require('path');
-var bodyParser = require("body-parser");
+var bodyParser = require('body-parser');
+const { count } = require('console');
 
-const base_url = "http://node57057-tharathep-noderest.proen.app.ruk-com.cloud";
-// const base_url = "localhost:3000";
+//const base_url = "http://localhost:3000";
+//const base_url = "http://node56765-wanichanon.proen.app.ruk-com.cloud";
+//const base_url = "http://node56967-env-0063028.proen.app.ruk-com.cloud";
+const base_url = "http://node59449-book-ecom.proen.app.ruk-com.cloud";
+
 
 app.set("views", path.join(__dirname, "/public/views"));
-app.set("view engine", "ejs");
+app.set('view engine', 'ejs');
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({extended: false}));
 
-app.use(express.static(__dirname + "/public"));
+app.use(express.static(__dirname + '/public'));
 
 app.get("/", async (req, res) => {
     try {
@@ -20,7 +24,7 @@ app.get("/", async (req, res) => {
         res.render("books", {books: response.data});
     } catch (err) {
         console.error(err);
-        res.status(500).send('Error');
+        res.status(500).send('Error Access Root Web');
     }
 });
 
