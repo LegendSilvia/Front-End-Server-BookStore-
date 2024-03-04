@@ -1,82 +1,123 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Create Book</title>
-    <link rel="stylesheet" href="../css/style.css">
-</head>
-<style>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <style>
     .tag-container {
-        display: flex;
-        flex-wrap: wrap;
-        margin-bottom: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
     }
-    .tag {
-        background-color: #f1f1f1;
-        border: 1px solid #ccc;
-        border-radius: 3px;
-        padding: 5px 10px;
-        margin-right: 5px;
-        margin-bottom: 5px;
-    }
-    .tag input {
-        border: none;
-        outline: none;
-        background: transparent;
-    }
-</style>
-<body>
-    <h1>Create Book</h1>
-    <form method="post" action="/create">
-        <label for="title">Title:</label>
-        <input type="text" id="title" name="title">
-        <br>
-        <label for="author">Author:</label>
-        <input type="text" id="author" name="author">
-        <br>
-        <div>
-            <div class="tag-container" id="tagContainer">
-                <!-- Tags will be added here dynamically -->
-            </div>
-            <input type="text" id="tagInput" placeholder="Enter a tag">
-            <button onclick="addTag()">Add Tag</button>
-            <button onclick="saveTagsToDatabase()">Save Tags to Database</button>
-        </div>
-        <input type="submit" value="create">
-    </form>
-    <a href="/">Back to List</a>
-</body>
 
-<script>
+    .tags {
+      background-color: #f1f1f1;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      padding: 5px 10px;
+      margin-right: 5px;
+      margin-bottom: 5px;
+      width: fit-content;
+    }
+
+    .tag input {
+      border: none;
+      outline: none;
+      background: transparent;
+    }
+
+    progress {
+      display: none;
+    }
+
+    progress.visible {
+      display: inline;
+    }
+  </style>
+
+  <body>
+    <h1>Create Book</h1>
+    <form method="post" action="/create" enctype="multipart/form-data">
+      <label for="title">Title:</label>
+      <input type="text" class="field" id="title" name="title" required/>
+      <br />
+      <label for="author">Author:</label>
+      <input type="text" class="field" id="author" name="author" required/>
+      <br />
+      <label for="type">Type:</label>
+      <select id="type_id" class="field" name="type_id" required>
+        <option value="1">Manga</option>
+        <option value="2">Light novels</option>
+        <option value="3">Misc</option>
+      </select>
+      <label for="theme">Theme:</label>
+      <select id="theme" class="field" name="theme_id" required>
+        <option value="1">School</option>
+        <option value="2">Sci-fi</option>
+        <option value="3">Unatural</option>
+        <option value="4">Harem</option>
+        <option value="5">Strategy</option>
+        <option value="6">Military</option>
+        <option value="7">Isekai</option>
+        <option value="8">Crime</option>
+        <option value="9">Detective</option>
+        <option value="10">Parody</option>
+      </select>
+      <label for="file_name">Image:</label>
+      <input
+        type="file"
+        accept=".jpg"
+        class="tag"
+        name="file_name"
+        id="file_name"
+        required/>
+      <label for="genre">Genre:</label>
+      <div class="tag-container" id="tagContainer">
+        <!-- Tags will be added here dynamically -->
+      </div>
+      <input type="text" class="tag" id="tagInput" placeholder="Enter a tag" />
+      <button class="button" type="button" onclick="addTag()">Add Tag</button
+      ><br />
+
+      <label for="price">Price:</label>
+      <input type="number" class="field" id="price" name="price" required/>
+
+      <label for="stock">Stock:</label>
+      <input type="number" class="field" id="stock" name="stock" required/>
+
+      <button type="submit" class="button">Submit</button>
+    </form>
+  </body>
+  <script>
     var tags = [];
 
     function addTag() {
-        var tagInput = document.getElementById("tagInput");
-        var tagName = tagInput.value.trim();
-
-        if (tagName !== "") {
-            tags.push(tagName);
-            renderTags();
-            tagInput.value = "";
-        }
+      var tagInput = document.getElementById("tagInput");
+      var tagName = tagInput.value.trim();
+      if (tagName !== "") {
+        tags.push(tagName);
+        renderTags();
+        tagInput.value = "";
+      }
     }
 
     function renderTags() {
-        var tagContainer = document.getElementById("tagContainer");
-        tagContainer.innerHTML = "";
+      var tagContainer = document.getElementById("tagContainer");
+      tagContainer.innerHTML = "";
 
-        tags.forEach(function(tag) {
-            var tagElement = document.createElement("div");
-            tagElement.classList.add("tag");
-            tagElement.textContent = tag;
+      tags.forEach(function (tag) {
+        var input = document.createElement("input");
+        input.setAttribute("type", "text");
+        input.setAttribute("class", "tags");
+        input.setAttribute("id", "genre");
+        input.setAttribute("name", "genre[]");
+        input.setAttribute("readonly", ""); // Set the readonly attribute
+        input.setAttribute("style", "width:"+tag.length+"ch;")
+        input.value = tag;
 
-            tagContainer.appendChild(tagElement);
-        });
+        tagContainer.appendChild(input);
+      });
     }
-
-    function saveTagsToDatabase() {
-        // Here you would send the 'tags' array to your server to save it to the database
-        console.log("Tags to be saved:", tags);
-        // You can use AJAX, Fetch API, or any other method to send data to the server
-    }
-</script>
+  </script>
 </html>
