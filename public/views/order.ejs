@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>order</title>
+    <link rel="stylesheet" href="order.css">
+</head>
+<body>
+
+    <div class="header">
+        <header>
+            <img src="logo.png" alt="" width="150px" height="70px">
+            <span class="logo">BookE-Com</span>
+                <a href="#" class="active" >Login</a>
+        </header>
+    </div>
+
+    <div class="container">
+        <h1>การส่งสินค้า</h1>
+        <form>
+            <div class="section">
+                <label for="name">ชื่อ-นามสกุล</label>
+                <input type="text" id="name" name="name">
+            </div>
+            <div class="section">
+                <label for="zip_code">รหัสไปรษณีย์</label>
+                <input type="text" id="zip_code" name="zip_code">
+            </div>
+            <div class="section">
+                <label for="address">ที่อยู่</label>
+                <input type="text" id="address" name="address">
+            </div>
+            <div class="section">
+                <label for="phone">เบอร์โทรศัพท์</label>
+                <input type="text" id="phone" name="phone">
+            </div>
+            <div class="section">
+                <label for="payment_method">ช่องทางชำระเงิน</label>
+                <select id="payment_method" name="payment_method">
+                    <option value="bank">Bank Transfer</option>
+                </select>
+            </div>
+            <div>
+                <h1>สรุปรายการสินค้า</h1>
+                <div class="box1">
+                    <img src="" alt="รูปตรงนี้" width="200">
+                    <p>ราคา :</p>
+                    <p>จำนวน :</p>
+                </div>
+            </div>
+            <div class="section">
+                <button type="submit">Confirm</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

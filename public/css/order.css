@@ -1,0 +1,111 @@
+.container {
+    width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.section {
+    margin-bottom: 15px;
+}
+
+.section label {
+    display: inline-block;
+    width: 150px;
+    text-align: left;
+    margin-right: 10px;
+}
+
+.section input,
+.section select {
+    width: calc(100% - 160px);
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.section select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 8'><polygon points='0,0 14,0 7,7'/></svg>");
+    background-repeat: no-repeat;
+    background-position: 100% center;
+    background-size: 12px;
+    padding-right: 30px;
+}
+
+.total {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+body {
+    /* display: flex;
+    justify-content: center; */
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+.container {
+    width: 500px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 2%;
+}
+
+.box1{
+    text-align: center;
+}
+
+
+
+.header {
+    background-color: #333;
+    color: #fff;
+    height: auto;
+    width: 100%;
+    /* padding: 15px 30px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center; */
+}
+
+.logo {
+    font-size: 35px;
+    font-weight: bold;
+}
+
+/* .nav {
+    display: flex;
+    margin-left: 85%;
+} */
+
+.header a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 68%;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.header a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.header a.active {
+    background-color: rgba(255, 255, 255, 0.2);
+}

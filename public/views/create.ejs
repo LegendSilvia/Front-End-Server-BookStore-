@@ -4,6 +4,26 @@
     <title>Create Book</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
+<style>
+    .tag-container {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+    }
+    .tag {
+        background-color: #f1f1f1;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        padding: 5px 10px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+    }
+    .tag input {
+        border: none;
+        outline: none;
+        background: transparent;
+    }
+</style>
 <body>
     <h1>Create Book</h1>
     <form method="post" action="/create">
@@ -13,8 +33,50 @@
         <label for="author">Author:</label>
         <input type="text" id="author" name="author">
         <br>
+        <div>
+            <div class="tag-container" id="tagContainer">
+                <!-- Tags will be added here dynamically -->
+            </div>
+            <input type="text" id="tagInput" placeholder="Enter a tag">
+            <button onclick="addTag()">Add Tag</button>
+            <button onclick="saveTagsToDatabase()">Save Tags to Database</button>
+        </div>
         <input type="submit" value="create">
     </form>
     <a href="/">Back to List</a>
 </body>
+
+<script>
+    var tags = [];
+
+    function addTag() {
+        var tagInput = document.getElementById("tagInput");
+        var tagName = tagInput.value.trim();
+
+        if (tagName !== "") {
+            tags.push(tagName);
+            renderTags();
+            tagInput.value = "";
+        }
+    }
+
+    function renderTags() {
+        var tagContainer = document.getElementById("tagContainer");
+        tagContainer.innerHTML = "";
+
+        tags.forEach(function(tag) {
+            var tagElement = document.createElement("div");
+            tagElement.classList.add("tag");
+            tagElement.textContent = tag;
+
+            tagContainer.appendChild(tagElement);
+        });
+    }
+
+    function saveTagsToDatabase() {
+        // Here you would send the 'tags' array to your server to save it to the database
+        console.log("Tags to be saved:", tags);
+        // You can use AJAX, Fetch API, or any other method to send data to the server
+    }
+</script>
 </html>
