@@ -1,29 +1,69 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Books</title>
+    <title>Books Management</title>
     <link rel="stylesheet" href="../css/style.css">
+</head>
 <body>
-    <h1>Books</h1>
+    <h1>Books Management</h1>
     <table>
         <tr>
             <th>Title</th>
             <th>Author</th>
+            <th style="text-align: center;">Stock</th>
             <th>Actions</th>
         </tr>
         <% for (var i=0; i < books.length; i++) {%>
         <tr>
+            <form action="/update/stock/<%= books[i].id %>" method="post">
             <td><%= books[i].title %></td>
             <td><%= books[i].author %></td>
+            <td><input class="field" type="number" value="<%= books[i].stock %>" style="width:50px;
+                text-align: center; margin-left: 20%;" name="stock">
+                <input value="Apply" type="submit" class="button" style="
+                padding: 7px 10px; margin-left: 10px;
+                "></td>
             <td>
-                <a href="/book/<%= books[i].id %>">View</a>
-                <a href="/update/<%= books[i].id %>">Edit</a>
-                <a href="/delete/<%= books[i].id %>">Delete</a>
+                <a href="/book/<%= books[i].id %>" class="active">View</a>
+                <a href="/update/<%= books[i].id %>" class="active">Edit</a>
+                <a href="/delete/<%= books[i].id %>" class="active">Delete</a>
             </td>
-        </tr> 
+        </form></tr> 
         <% } %>
     </table>
-    <a href="/create">Create New Book</a>
+    <a href="/create" class="active">Create New Book</a>
 </body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get all input fields with the class 'field'
+        var inputFields = document.querySelectorAll('.field');
+
+        inputFields.forEach(function(inputField) {
+        var initialValue = parseInt(inputField.value);
+        if (initialValue < 21) {
+            inputField.style.backgroundColor = '#f39090';
+        } else if (initialValue < 41) {
+            inputField.style.backgroundColor = '#ffff00a3';
+        } else {
+            inputField.style.backgroundColor = '#54e959a3';
+        }
+    });
+        
+        // Iterate over each input field
+        inputFields.forEach(function(inputField) {
+            // Add input event listener to each input field
+            inputField.addEventListener('input', function() {
+                var value = parseInt(this.value);
+                if (value < 21) {
+                    this.style.backgroundColor = '#f39090';
+                } else if (value < 41) {
+                    this.style.backgroundColor = '#ffff00a3';
+                } else {
+                    this.style.backgroundColor = '#54e959a3';
+                }
+            });
+        });
+    });
+    </script>
 </head>
 </html>

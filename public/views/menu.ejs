@@ -1,0 +1,33 @@
+<div class="header">
+  <header>
+    <!-- <img src="../Pictures/logo.png" alt="" width="150px" height="70px"> -->
+    <div class="flex">
+      <p class="logo">BookE-Com</p>
+      <% if (level=='member' ) { %>
+      <a href="/Logout" class="active">Logout</a>
+    </div>
+
+    <div class="box1">
+      <a href="/">All Series</a><a href="/LN">Light Novel</a>
+      <a href="/MG">Manga</a> <a href="#">Misc</a>
+    </div>
+    <% } else if (level=='admin' ) { %>
+        <a href="/Logout" class="active">Logout</a>
+    </div>
+
+    <div class="box1">
+      <a href="/">All Series</a><a href="/LN">Light Novel</a>
+      <a href="/MG">Manga</a> <a href="#">Misc</a>
+      <a href="/books">Administrator</a>
+    </div>
+    <% } else { %>
+        <a href="/login" class="active">Login</a>
+    </div>
+
+    <div class="box1">
+      <a href="/">All Series</a><a href="/LN">Light Novel</a>
+      <a href="/MG">Manga</a> <a href="#">Misc</a>
+    </div>
+    <% } %>
+  </header>
+</div>

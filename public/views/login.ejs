@@ -4,33 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/navbar.css">
 </head>
 <body>
-    <div class="header">
-        <header>
-            <img src="logo.png" alt="" width="150px" height="70px">
-            <span class="logo">BookE-Com</span>
-                <a href="#" class="active" >Login</a>
-        </header>
-    </div>
+    <%- include('menu.ejs', {level: level, username: username}) -%>
     <div class="container">
         <h1>BookE-Com</h1>
-        <form action="" method="post">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" required>
+        <form action="/login" method="post">
+            <label class="label" for="username">Username</label>
+            <input class="log" type="text" id="username" name="username" required>
 
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
+            <label class="label" for="password">Password</label>
+            <input class="log" type="password" id="password" name="password" required>
             <br><br>
             
             <!-- <button type="submit">Log in</button>
             <br><br> -->
 
-            <a href="" class="button1">Log in</a></button>
-            <br><br><br>
-            <a href="" class="button2">Register</a></button>
+            <button class="button1" type="submit">Log in</button>
+            <br>
         </form>
+        <a href="/register" class="button2">Register</a></button>
     </div>
 </body>
 </html>

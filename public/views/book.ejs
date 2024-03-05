@@ -1,15 +1,57 @@
-<!-- book.ejs -->
-<DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Book</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>book</title>
+    <link rel="stylesheet" href="../css/book.css">
+    <link rel="stylesheet" href="../css/heart.css">
+    <link rel="stylesheet" href="../css/navbar.css">
 </head>
 <body>
-<h1><%= book.title %></h1>
-<p>Author: <%= book.author %></p>
-<a href="/update/<%= book.id %>">Edit</a>
-<a href="/delete/<%= book.id %>">Delete</a>
-<a href="/">Back to List</a>
+  <%- include('menu.ejs', {level: level, username: username}) -%>
+  <form action="/search" method="get" class="search-container">
+    <label for="search">ค้นหา:</label>
+    <input type="text" id="search" name="search" />
+    <input type="submit" value="ค้นหา" />
+  </form>
+
+    <div class="container">
+        <div class="product-card">
+          <div class="left" style="margin-right: 10%;">
+            <img
+              src="../uploads/<%= book.file_name %>"
+              alt="รูปหนังสือ"
+              style="height: 90%; width: auto;"
+            />
+          </div>
+    
+          <div class="right" style="text-align: left;">
+            <!-- <button class="like-button">&#10084;</button> -->
+            <p>ชื่อหนังสือ : <%= book.title %></p>
+            <p>ผู้เขียน : <%= book.author %></p>
+            <p>ประเภท :</p>
+            <p>ธีม :</p>
+            <p>ราคา : <%= book.price %></p><br><br><br>
+            <input type="number" name="holder" value="<%= book.stock %>" id="holder" hidden>
+            <form action="/cart/<%= book.id %>">
+            <input type="number" name="quanity" class="field" value="1" id="quanity">
+            <button class="add-to-cart" style="margin-left: 10%;" 
+            type="submit">ใส่ตระกร้า</button>
+          </form>
+          </div>
+        </div>
+    </div>
 </body>
+<script>
+  const stock = document.getElementById('holder');
+  const inputField = document.getElementById('quanity');
+
+  inputField.addEventListener('input', function(event) {
+    if(event.target.value > parseInt(stock.value)) {
+      alert("จำนวนสินค้าไม่พอ");
+      event.target.value = stock.value;
+    }
+  });
+</script>
 </html>

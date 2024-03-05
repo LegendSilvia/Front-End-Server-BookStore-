@@ -28,7 +28,12 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 20px;
     text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    display: flex;
     width: 70%;
+    height: 70%;
 }
 
 .product-card h2 {
@@ -47,7 +52,7 @@ body {
 }
 
 .product-card p {
-    font-size: 1.1rem;
+    font-size: 20px;
     margin-bottom: 5px;
 }
 
@@ -58,7 +63,7 @@ body {
 }
 
 .add-to-cart,
-.box1 {
+.button {
     background-color: #007bff;
     border: none;
     border-radius: 5px;
@@ -70,7 +75,7 @@ body {
 }
 
 .add-to-cart:hover,
-.box1:hover {
+.button:hover {
     background-color: #0069d9;
 }
 
@@ -126,3 +131,12 @@ body {
 .header a.active {
     background-color: rgba(255, 255, 255, 0.2);
 }
+
+.field {
+    width: 20%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: #000000 solid 2px;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+  }

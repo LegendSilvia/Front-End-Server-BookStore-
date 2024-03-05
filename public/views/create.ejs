@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Create Book</title>
+    <title>New Stock List</title>
     <link rel="stylesheet" href="../css/style.css" />
   </head>
   <style>
@@ -37,7 +37,7 @@
   </style>
 
   <body>
-    <h1>Create Book</h1>
+    <h1>New Stock List</h1>
     <form method="post" action="/create" enctype="multipart/form-data">
       <label for="title">Title:</label>
       <input type="text" class="field" id="title" name="title" required/>
@@ -113,7 +113,7 @@
         input.setAttribute("id", "genre");
         input.setAttribute("name", "genre[]");
         input.setAttribute("readonly", ""); // Set the readonly attribute
-        input.setAttribute("style", "width:"+tag.length+"ch;")
+        input.setAttribute("style", `width:${tag.length+1}ch;`)
         input.value = tag;
 
         tagContainer.appendChild(input);
