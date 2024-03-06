@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/Profile.css" />
+  </head>
+  <body>
+    <%- include('menu.ejs', {level: level, username: username}) -%>
+    <br /><br />
+    <div class="card">
+      <br />
+      <table border="0" width="10%" align="center">
+        <td>
+          <div class="profile-picture">
+            <img src="./bookimage/cute cat.jpg" />
+          </div>
+        </td>
+      </table>
+      <br />
+      <div class="data" align="left">
+        <b>&nbsp;&nbsp;Username : </b><br />
+        <b>&nbsp;&nbsp;password : </b><br />
+        <b>&nbsp;&nbsp;ชื่อจริง : </b><br />
+        <b>&nbsp;&nbsp;นามสกุล : </b><br />
+        <b>&nbsp;&nbsp;เบอร์โทรศัพท์ : </b><br />
+        <b>&nbsp;&nbsp;อีเมล : </b><br />
+        <b>&nbsp;&nbsp;ที่อยู่ : </b><br />
+        <b>&nbsp;&nbsp;วันที่สร้าง : </b>
+      </div>
+      <div class="menu">
+        <div class="data"></div>
+      </div>
+    </div>
+    <tr></tr>
+  </body>
+</html>
