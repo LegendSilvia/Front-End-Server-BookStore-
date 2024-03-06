@@ -34,8 +34,8 @@
             <p>ธีม :</p>
             <p>ราคา : <%= book.price %></p><br><br><br>
             <input type="number" name="holder" value="<%= book.stock %>" id="holder" hidden>
-            <form action="/cart/<%= book.id %>">
-            <input type="number" name="quanity" class="field" value="1" id="quanity">
+            <form action="/store/<%= book.id %>" method="post">
+            <input type="number" name="quantity" class="field" value="1" id="quanity">
             <button class="add-to-cart" style="margin-left: 10%;" 
             type="submit">ใส่ตระกร้า</button>
           </form>

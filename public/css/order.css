@@ -58,6 +58,21 @@ body {
     background-color: #f2f2f2;
 }
 
+.display {
+    display: flex;
+}
+
+.button {
+    background-color: #2C3E50;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+
 .container {
     width: 500px;
     padding: 20px;
@@ -65,9 +80,21 @@ body {
     border-radius: 4px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-top: 2%;
+    height: fit-content;
 }
 
-.box1{
+.containerR {
+    width: 60%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 2%;
+    margin-right: 3%;
+    height: fit-content;
+}
+
+.b1{
     text-align: center;
 }
 

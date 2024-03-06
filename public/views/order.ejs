@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>order</title>
+    <link rel="stylesheet" href="../css/order.css">
+</head>
+<body>
+    <%- include('menu.ejs', {level: level, username: username}) -%>
+    <div class="display">
+        <div class="container">
+            <h1>การส่งสินค้า</h1>
+            <% if (level == "member"||level == "admin") {%>
+            <form action="/placeOrder" method="post">
+                <div style="margin-left: 20%;">
+                <div class="section">
+                    <label for="name">ชื่อ-นามสกุล</label>
+                    <input type="text" id="name" name="name">
+                </div>
+                <div class="section">
+                    <label for="address">ที่อยู่</label>
+                    <input type="text" id="address" name="address">
+                </div>
+                <div class="section">
+                    <label for="phone">เบอร์โทรศัพท์</label>
+                    <input type="text" id="phone" name="phone">
+                </div>
+                <!-- <div class="section">
+                    <label for="payment_method">ช่องทางชำระเงิน</label>
+                    <select id="payment_method" name="payment_method">
+                        <option value="bank">Bank Transfer</option>
+                    </select>
+                </div> -->
+                <div class="section" style="margin-left: 25%;">
+                    <button type="submit" class="button">Confirm</button>
+                </div></div>
+            </form><% } else { %>
+                <div style="text-align: center; margin: 30% 30%;"><a href="/login" class="button" style="font-size: 25px;">Login</a></div>
+            <% } %>
+        </div>
+        <div class="containerR">
+            <h1></h1>
+            <table>
+                <tr><th style="width: 15%;padding-bottom: 35px; text-align: center;">No.</th><th style="width: 17%;padding-bottom: 35px;">Image</th>
+                    <th style="padding-bottom: 35px;">Title</th><th style="padding-bottom: 35px;">Quantity</th><th style="padding-bottom: 35px;">Totals</th>
+                    <% for (var i=0; i < books.length; i++) {%>
+                        <tr>
+                            <td style="text-align: center;"><%= i+1 %></td>
+                            <td><img
+                                src="../uploads/<%= books[i].file_name %>" style="height: 25%;width: 100%;"/>
+                            </td>
+                            <td style="text-align: center;"><%= books[i].title %></td>
+                            <td><form action="/change-quantity/<%= books[i].id %>" method="post">
+                                <input class="field" type="number" value="<%= quantity[i] %>" style="width:50px;
+                                text-align: center; margin-left: 20%;" name="quantity">
+                                <input value="Apply" type="submit" class="button" style="
+                                padding: 7px 10px; margin-left: 10px;
+                                "></form></td>
+                            <td style="text-align: center;">
+                                <%= totalP[i] %> THB
+                            </td>
+                        </tr> 
+                    <% } %>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
