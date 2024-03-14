@@ -9,9 +9,7 @@ var bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const { count } = require("console");
 
-//const base_url = "http://localhost:3000";
-//const base_url = "http://node56765-wanichanon.proen.app.ruk-com.cloud";
-//const base_url = "http://node56967-env-0063028.proen.app.ruk-com.cloud";
+// const base_url = "http://localhost:3000";
 const base_url = "http://node59449-book-ecom.proen.app.ruk-com.cloud";
 
 app.set("views", path.join(__dirname, "/public/views"));
@@ -100,10 +98,17 @@ app.get("/", async (req, res) => {
     }
 });
 
+<<<<<<< HEAD
 app.get("/bookstore", async (req, res) => {
     try {
         const response = await axios.get(base_url + "/books");
         res.render("main", {
+=======
+app.get("/profile", async (req, res) => {
+    try {
+        const response = await axios.get(base_url + "/books");
+        res.render("profile", {
+>>>>>>> 3ad1888f2190dbb70610db953c2e723c081c8eee
             books: response.data,
             level: req.cookies.level,
             username: req.cookies.username,
