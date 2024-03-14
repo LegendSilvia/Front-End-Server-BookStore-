@@ -9,25 +9,32 @@
     </div>
 
     <div class="box1">
-      <a href="/">All Series</a><a href="/LN">Light Novel</a>
-      <a href="/MG">Manga</a> <a href="#">Misc</a>
+      <a href="/">All Series</a>
+      <% for (var i=0; i < bTypes.length; i++) {%>
+        <a href="/type/<%= bTypes[i].id %>"><%= bTypes[i].bType_name %></a>
+      <% } %>
+      <a href="#">Misc</a><a href="/profile">Profile</a>
     </div>
     <% } else if (level=='admin' ) { %>
         <a href="/Logout" class="active">Logout</a>
     </div>
 
     <div class="box1">
-      <a href="/">All Series</a><a href="/LN">Light Novel</a>
-      <a href="/MG">Manga</a> <a href="#">Misc</a>
-      <a href="/books">Administrator</a>
+      <a href="/">All Series</a>
+      <% for (var i=0; i < bTypes.length; i++) {%>
+        <a href="/type/<%= bTypes[i].id %>"><%= bTypes[i].bType_name %></a>
+      <% } %><a href="/profile">Profile</a>
+      <a href="/admin">Administrator</a>
     </div>
     <% } else { %>
         <a href="/login" class="active">Login</a>
     </div>
 
     <div class="box1">
-      <a href="/">All Series</a><a href="/LN">Light Novel</a>
-      <a href="/MG">Manga</a> <a href="#">Misc</a>
+      <a href="/">All Series</a>
+      <% for (var i=0; i < bTypes.length; i++) {%>
+        <a href="/type/<%= bTypes[i].id %>"><%= bTypes[i].bType_name %></a>
+      <% } %><a href="/profile">Profile</a>
     </div>
     <% } %>
   </header>

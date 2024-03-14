@@ -10,19 +10,13 @@
 </head>
 <body>
   <%- include('menu.ejs', {level: level, username: username}) -%>
-  <form action="/search" method="get" class="search-container">
-    <label for="search">ค้นหา:</label>
-    <input type="text" id="search" name="search" />
-    <input type="submit" value="ค้นหา" />
-  </form>
-
     <div class="container">
         <div class="product-card">
-          <div class="left" style="margin-right: 10%;">
+          <div class="left" style="margin-right: 10%; width: 35%; width: 360px;">
             <img
               src="../uploads/<%= book.file_name %>"
               alt="รูปหนังสือ"
-              style="height: 90%; width: auto;"
+              style="height: 100%; width: 100%;"
             />
           </div>
     
@@ -30,8 +24,11 @@
             <!-- <button class="like-button">&#10084;</button> -->
             <p>ชื่อหนังสือ : <%= book.title %></p>
             <p>ผู้เขียน : <%= book.author %></p>
-            <p>ประเภท :</p>
-            <p>ธีม :</p>
+            <p>ประเภท : <%= book.genre[0] %><% for (var i=1; i < book.genre.length ; i++) {%>
+              <%= ", "+book.genre[i] %></option>
+            <% } %>
+            </p>
+            <p>ธีม : <%= book_theme[0].theme_name %></p>
             <p>ราคา : <%= book.price %></p><br><br><br>
             <input type="number" name="holder" value="<%= book.stock %>" id="holder" hidden>
             <form action="/store/<%= book.id %>" method="post">

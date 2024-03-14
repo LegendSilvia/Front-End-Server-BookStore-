@@ -16,15 +16,15 @@
                 <div style="margin-left: 20%;">
                 <div class="section">
                     <label for="name">ชื่อ-นามสกุล</label>
-                    <input type="text" id="name" name="name">
+                    <input type="text" id="name" name="name" value="<%= profile.fname %> <%= profile.lname %>" required>
                 </div>
                 <div class="section">
                     <label for="address">ที่อยู่</label>
-                    <input type="text" id="address" name="address">
+                    <input type="text" id="address" name="address" value="<%= profile.address %>" required>
                 </div>
                 <div class="section">
                     <label for="phone">เบอร์โทรศัพท์</label>
-                    <input type="text" id="phone" name="phone">
+                    <input type="text" id="phone" name="phone" value="<%= profile.phone %>" required>
                 </div>
                 <!-- <div class="section">
                     <label for="payment_method">ช่องทางชำระเงิน</label>

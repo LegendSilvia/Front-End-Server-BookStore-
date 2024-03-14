@@ -1,95 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="Profile.css">
-</head>
-<body>
-    <div class="header">
-        <header>
-            <img src="logo.png" alt="" width="150px" height="70px">
-            <span class="logo">BookE-Com</span>
-                <a href="#" class="active" >Login</a>
-        </header>
-    </div>
-    <form action="/search" method="get" class="search-container">
-        <label for="search">ค้นหา:</label>
-        <input type="text" id="search" name="search">
-        <input type="submit" value="ค้นหา">
-       </form>
-       <br><br>
-        <div class="card">
-            <br>
-            <table border="0" width="10%" align="center">
-                <td>
-                    <div class="profile-picture">
-                        <img src="./bookimage/cute cat.jpg">
-                    </div>
-                </td>
-            </table>
-            <br>
-                <div class="data" align="left">
-                    <b>&nbsp;&nbsp;User ID : </b><br>
-                    <b>&nbsp;&nbsp;Username : </b><br>
-                    <b>&nbsp;&nbsp;password : </b><br>
-                    <b>&nbsp;&nbsp;ชื่อจริง : </b><br>
-                    <b>&nbsp;&nbsp;นามสกุล : </b><br>
-                    <b>&nbsp;&nbsp;เบอร์โทรศัพท์ : </b><br>
-                    <b>&nbsp;&nbsp;อีเมล : </b><br>
-                    <b>&nbsp;&nbsp;ที่อยู่ : </b><br>
-                    <b>&nbsp;&nbsp;วันที่สร้าง : </b>
-                </div>
-            <td colspan="2">
-                <div class="contact" align="center">
-                    <a href="https://www.facebook.com/"><img src="./Logo/Facebook_Logo_(2019).png.webp" width="50" height="50" alt=""></a>&nbsp;&nbsp;
-                    <a href="https://www.instagram.com/"><img src="./Logo/Instagram_icon.png.webp" width="50" height="50" alt=""></a>&nbsp;&nbsp;
-                    <a href="https://access.line.me/oauth2/v2.1/login?fromDomain=access-auto.line.me&loginState=nBeMaOY7Mdu5aFeSo1hVfn&line_auto_login_error=universal_link_error&loginChannelId=1445834080&returnUri=oauth2v2.1authorizeconsentbot_promptnormalscopeopenidprofileresponse_typecodestateRhiVgBoLDGredirect_urihttps3A2F2Fform.tonariwa.com2Fsuntory2Fmeasure_url3Fcpid3Dtennensui_sampling426lcd3D126type3D126nonceEvutxGZ894client_id1445834080#/"><img src="./Logo/LINE_New_App_Icon_(2020-12).png" width="50" height="50" alt=""></a>&nbsp;&nbsp;
-                    <a href="https://twitter.com/?lang=th"><img src="./Logo/twitter.png" width="50" height="50" alt=""></a>&nbsp;&nbsp;
-                    <a href="https://www.youtube.com/"><img src="./Logo/Youtube_logo.png" width="60" height="50" alt=""></a>
-                </div>
-            </td>
-      </div>
-    <tr></tr>
-</body>
-</html>
-=======
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="../css/Profile.css" />
+    <link rel="stylesheet" href="../css/navbar.css">
   </head>
+  <style>
+    .display {
+    display: flex;
+}
+    .container {
+      margin-left: 2%;
+    width: 500px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 2%;
+    height: fit-content;
+}
+
+.containerR {
+    width: 60%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 2%;
+    margin-left: 2%;
+    height: fit-content;
+}
+    .profile-item {
+      margin-bottom: 10px;
+    }
+    .profile-item label {
+      font-weight: bold;
+    }
+  </style>
   <body>
     <%- include('menu.ejs', {level: level, username: username}) -%>
-    <br /><br />
-    <div class="card">
-      <br />
-      <table border="0" width="10%" align="center">
-        <td>
-          <div class="profile-picture">
-            <img src="./bookimage/cute cat.jpg" />
-          </div>
-        </td>
-      </table>
-      <br />
-      <div class="data" align="left">
-        <b>&nbsp;&nbsp;Username : </b><br />
-        <b>&nbsp;&nbsp;password : </b><br />
-        <b>&nbsp;&nbsp;ชื่อจริง : </b><br />
-        <b>&nbsp;&nbsp;นามสกุล : </b><br />
-        <b>&nbsp;&nbsp;เบอร์โทรศัพท์ : </b><br />
-        <b>&nbsp;&nbsp;อีเมล : </b><br />
-        <b>&nbsp;&nbsp;ที่อยู่ : </b><br />
-        <b>&nbsp;&nbsp;วันที่สร้าง : </b>
+    <div class="display">
+      <div class="container"><form action="/editprofile" method="post">
+          <div class="profile">
+              <h2>User Profile</h2>
+              <div class="profile-item">
+                <label for="username">Username:</label>
+                <span id="username"><%= profile.username %></span>
+              </div>
+              <div class="profile-item">
+                <label for="firstName">ชื่อจริง (First Name):</label>
+                <input type="text" name="fname" value="<%= profile.fname %>">
+              </div>
+              <div class="profile-item">
+                <label for="lastName">นามสกุล (Last Name):</label>
+                <input type="text" name="lname" value="<%= profile.lname %>">
+              </div>
+              <div class="profile-item">
+                <label for="phone">เบอร์โทรศัพท์ (Phone Number):</label>
+                <input type="text" name="phone" value="<%= profile.phone %>">
+              </div>
+              <div class="profile-item">
+                <label for="email">อีเมล (Email):</label>
+                <span id="email"><%= profile.email %></span>
+              </div>
+              <div class="profile-item">
+                <label for="address">ที่อยู่ (Address):</label>
+                <textarea name="address" cols="30" rows="2"><%= profile.address %></textarea>
+              </div>
+              <div class="section" style="margin-left: 20%;">
+                <button type="submit" class="button" style="width: 35%; margin-top: 10%;">Confirm Edit</button>
+            </div>
+            </div>
+          </form>
       </div>
-      <div class="menu">
-        <div class="data"></div>
+      <div class="containerR" style="width: 43%;">
+        <table>
+          <tr><th style="width: 15%;padding-bottom: 35px; text-align: center;">No.</th><th style="width: 17%;padding-bottom: 35px;">Order Date</th>
+            <th style="padding-bottom: 35px;">Status</th><th style="padding-bottom: 35px;">Totals</th><th style="padding-bottom: 35px;">Action</th>
+            <% for (var i=0; i < order.length; i++) {%>
+                <tr>
+                    <td style="text-align: center;"><%= i+1 %></td>
+                    <td style="text-align: center;">
+                      <% 
+                      function formatDate(dateString) {
+                        const createdAt = new Date(dateString);
+                        const formattedDate = createdAt.toLocaleDateString('en-US', {
+                          month: '2-digit',
+                          day: '2-digit',
+                          year: 'numeric'
+                        });
+                        return formattedDate;
+                      }
+                      %>
+                      <%= 
+                      formatDate(order[i].createdAt) 
+                      %></td>
+                      <td>
+                        <div style="text-align: center; border: 2px solid #1eff00; border-radius: 50px; margin: 15px 50px; padding: 10px 10px; background-color: #e6ffe2;">
+                          <%= order[i].status %>
+                        </div>
+                      </td>                      
+                    <td style="text-align: center;"><%= order[i].total %></td>
+                    <td style="text-align: center;">
+                      <div style="text-align: center; border: 2px solid #30b5cc; border-radius: 50px; margin: 15px 50px; padding: 10px 10px; background-color: #bef5ff;">
+                        <a href="/profile/<%= order[i].id %>" style="font-size: 14px;">View Order</a>
+                      </div>
+                    </td>
+                </tr> 
+            <% } %>
+        </tr>
+        </table>
       </div>
-    </div>
-    <tr></tr>
+  </div>
   </body>
 </html>
->>>>>>> 3ad1888f2190dbb70610db953c2e723c081c8eee

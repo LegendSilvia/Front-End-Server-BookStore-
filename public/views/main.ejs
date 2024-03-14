@@ -10,11 +10,6 @@
   <body>
     <%- include('Fcart.ejs', {totalQ: totalQ}) -%>
     <%- include('menu.ejs', {level: level, username: username}) -%>
-    <form action="/search" method="get" class="search-container">
-      <label for="search">ค้นหา:</label>
-      <input type="text" id="search" name="search" />
-      <input type="submit" value="ค้นหา" />
-    </form>
     <div class="contentholder">
       <% for (var i=0; i < books.length; i++) {%>
       <div class="item">

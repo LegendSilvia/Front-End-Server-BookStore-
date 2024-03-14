@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>order</title>
+    <link rel="stylesheet" href="../css/order.css">
+</head>
+<body>
+    <%- include('menu.ejs', {level: level, username: username}) -%>
+    <div class="display">
+        <div class="containerR" style="align-items: center; margin-left: 15%;">
+            <table style="margin-top: 2em;">
+                <tr><th style="width: 15%;padding-bottom: 35px; text-align: center;">No.</th><th style="width: 17%;padding-bottom: 35px;">Image</th>
+                    <th style="padding-bottom: 35px;">Title</th><th style="padding-bottom: 35px;">Quantity</th><th style="padding-bottom: 35px;">Totals</th>
+                    <% for (var i=0; i < books.length; i++) {%>
+                        <tr>
+                            <td style="text-align: center;"><%= i+1 %></td>
+                            <td><img
+                                src="../uploads/<%= books[i].file_name %>" style="height: 25%;width: 100%;"/>
+                            </td>
+                            <td style="text-align: center;"><%= books[i].title %></td>
+                            <td style="text-align: center;"><%= ReqInfo[i].quantity %></td>
+                            <td style="text-align: center;"><%= ReqInfo[i].totalOP %></td>
+                        </tr> 
+                    <% } %>
+                </tr>
+            </table>
+            <div style="text-align: center; margin: 50px 50px;"><a href="/profile" class="button" style="font-size: 25px;">Back</a></div>
+        </div>
+    </div>
+</body>
+</html>

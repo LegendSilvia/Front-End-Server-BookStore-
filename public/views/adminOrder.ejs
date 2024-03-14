@@ -5,33 +5,28 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <h1>Books Management</h1>
-    <table>
-        <tr>
-            <th>Title</th>
-            <th>Author</th>
-            <th style="text-align: center;">Stock</th>
-            <th>Actions</th>
-        </tr>
-        <% for (var i=0; i < books.length; i++) {%>
-        <tr>
-            <form action="/update/stock/<%= books[i].id %>" method="post">
-            <td><%= books[i].title %></td>
-            <td><%= books[i].author %></td>
-            <td><input class="field" type="number" value="<%= books[i].stock %>" style="width:50px;
-                text-align: center; margin-left: 20%;" name="stock">
-                <input value="Apply" type="submit" class="button" style="
-                padding: 7px 10px; margin-left: 10px;
-                "></td>
-            <td>
-                <a href="/book/<%= books[i].id %>" class="active">View</a>
-                <a href="/update/<%= books[i].id %>" class="active">Edit</a>
-                <a href="/delete/<%= books[i].id %>" class="active">Delete</a>
-            </td>
-        </form></tr> 
-        <% } %>
-    </table>
-    <a href="/create" class="active">Create New Book</a><a href="/" class="active">Back</a>
+    <a href="/" class="active">Exit</a><a href="/admin" class="active">Order</a><a href="/admin/book" class="active">Book</a><a href="/admin/Entities" class="active">Entities</a><a href="/admin" class="active">Back</a>
+    <h1>Order Management</h1>
+    <div class="display">
+        <center>
+                <table style="margin-top: 2em;">
+                    <tr><th style="width: 15%; text-align: center;">No.</th><th style="width: 17%;">Image</th>
+                        <th >Title</th><th >Quantity</th><th >Totals</th>
+                        <% for (var i=0; i < books.length; i++) {%>
+                            <tr>
+                                <td style="text-align: center;"><%= i+1 %></td>
+                                <td><img
+                                    src="../uploads/<%= books[i].file_name %>" style="height: 250px;width: auto;"/>
+                                </td>
+                                <td style="margin-left: 5%;"><%= books[i].title %></td>
+                                <td><%= ReqInfo[i].quantity %></td>
+                                <td><%= ReqInfo[i].totalOP %></td>
+                            </tr> 
+                        <% } %>
+                    </tr>
+                </table>
+        </center>
+    </div>
 </body>
 <script>
     document.addEventListener('DOMContentLoaded', function() {

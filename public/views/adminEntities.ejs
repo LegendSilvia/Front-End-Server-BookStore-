@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Books Management</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <a href="/" class="active">Exit</a><a href="/admin" class="active">Order</a><a href="/admin/book" class="active">Book</a><a href="/admin/Entities" class="active">Entities</a>
+    <br><br>
+    <div class="container" style="display: flex; justify-content: center;">
+        <div style="width: 45%; border: 1px solid black; margin: 25px 25px; justify-content: center;">
+            <h1>Book Types</h1>
+            <p style="color: red; margin-left: 35px;">*Delete these data may result in several error pages due to the data being use.</p>
+            <div style="width: 100%; text-align: center;">
+                <center><form action="/create_type" method="post" style="width: 90%; padding: 5px;margin: 15px 5px;">
+                <td><input type="text" name="bType_name" style="width: 65%; margin: 15px 5px;">
+                    <input value="Insert" type="submit" class="button" style="
+                        padding: 7px 10px; margin-left: 10px; width: 25%;
+                        ">
+                </td></form></center>
+            </div>
+            <center>
+            <table style="width: 97%; margin-bottom: 25px;">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Actions</th>
+                </tr>
+            <% for (var i=0; i < bTypes.length; i++) {%>
+                <tr>
+                    <td><%= bTypes[i].id %></td>
+                    <form action="/bt_update/<%= bTypes[i].id %>" method="post">
+                    <td><input type="text" name="bType_name" value="<%= bTypes[i].bType_name %>"></td>
+                    <td style="align-items: center;">
+                        <div style="align-items: center;">
+                        <input value="Apply Change" type="submit" class="button" style="
+                        padding: 7px 10px; margin-left: 10px; font-size: 19px;
+                        ">
+                        <a href="/bT_delete/<%= bTypes[i].id %>" class="button">Delete</a></div>
+                    </td>
+                    </form>
+                </tr> 
+                <% } %>
+            </table></center>
+        </div>
+        <div style="width: 45%; border: 1px solid black; margin: 25px 25px; justify-content: center;">
+            <h1>Themes</h1>
+            <p style="color: red; margin-left: 35px;">*Delete these data may result in several error pages due to the data being use.</p>
+            <div style="width: 100%; text-align: center;">
+                <center><form action="/themes" method="post" style="width: 90%; padding: 5px;margin: 15px 5px;">
+                <td><input type="text" name="theme_name" style="width: 65%; margin: 15px 5px;">
+                    <input value="Insert" type="submit" class="button" style="
+                        padding: 7px 10px; margin-left: 10px; width: 25%;
+                        ">
+                </td></form></center>
+            </div>
+            <center>
+            <table style="width: 97%; margin-bottom: 25px;">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Actions</th>
+                </tr>
+            <% for (var i=0; i < themes.length; i++) {%>
+                <tr>
+                    <td><%= themes[i].id %></td>
+                    <form action="/t_update/<%= themes[i].id %>" method="post">
+                    <td><input type="text" name="theme_name" value="<%= themes[i].theme_name %>"></td>
+                    <td style="align-items: center;">
+                        <div style="align-items: center;">
+                        <input value="Apply Change" type="submit" class="button" style="
+                        padding: 7px 10px; margin-left: 10px; font-size: 19px;
+                        ">
+                        <a href="/t_delete/<%= themes[i].id %>" class="button">Delete</a></div>
+                    </td>
+                    </form>
+                </tr> 
+                <% } %>
+            </table></center>
+        </div>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get all input fields with the class 'field'
+        var inputFields = document.querySelectorAll('.field');
+
+        inputFields.forEach(function(inputField) {
+        var initialValue = parseInt(inputField.value);
+        if (initialValue < 21) {
+            inputField.style.backgroundColor = '#f39090';
+        } else if (initialValue < 41) {
+            inputField.style.backgroundColor = '#ffff00a3';
+        } else {
+            inputField.style.backgroundColor = '#54e959a3';
+        }
+    });
+        
+        // Iterate over each input field
+        inputFields.forEach(function(inputField) {
+            // Add input event listener to each input field
+            inputField.addEventListener('input', function() {
+                var value = parseInt(this.value);
+                if (value < 21) {
+                    this.style.backgroundColor = '#f39090';
+                } else if (value < 41) {
+                    this.style.backgroundColor = '#ffff00a3';
+                } else {
+                    this.style.backgroundColor = '#54e959a3';
+                }
+            });
+        });
+    });
+    </script>
+</head>
+</html>

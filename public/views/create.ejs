@@ -37,6 +37,7 @@
   </style>
 
   <body>
+    <a href="/" class="active">Exit</a><a href="/admin" class="active">Order</a><a href="/admin/book" class="active">Book</a><a href="/admin/Entities" class="active">Entities</a>
     <h1>New Stock List</h1>
     <form method="post" action="/create" enctype="multipart/form-data">
       <label for="title">Title:</label>
@@ -47,22 +48,15 @@
       <br />
       <label for="type">Type:</label>
       <select id="type_id" class="field" name="type_id" required>
-        <option value="1">Manga</option>
-        <option value="2">Light novels</option>
-        <option value="3">Misc</option>
+        <% for (var i=0; i < bTypes.length; i++) {%>
+          <option value="<%= bTypes[i].id %>"><%= bTypes[i].bType_name %></option>
+        <% } %>
       </select>
       <label for="theme">Theme:</label>
       <select id="theme" class="field" name="theme_id" required>
-        <option value="1">School</option>
-        <option value="2">Sci-fi</option>
-        <option value="3">Unatural</option>
-        <option value="4">Harem</option>
-        <option value="5">Strategy</option>
-        <option value="6">Military</option>
-        <option value="7">Isekai</option>
-        <option value="8">Crime</option>
-        <option value="9">Detective</option>
-        <option value="10">Parody</option>
+        <% for (var i=0; i < themes.length; i++) {%>
+          <option value="<%= themes[i].id %>"><%= themes[i].theme_name %></option>
+        <% } %>
       </select>
       <label for="file_name">Image:</label>
       <input
@@ -88,6 +82,7 @@
 
       <button type="submit" class="button">Submit</button>
     </form>
+    <a href="/admin/Book">Back to List</a>
   </body>
   <script>
     var tags = [];
