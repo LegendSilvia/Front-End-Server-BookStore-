@@ -40,6 +40,7 @@
     }
   </style>
   <body>
+    <%- include('Fcart.ejs', {totalQ: totalQ}) -%>
     <%- include('menu.ejs', {level: level, username: username}) -%>
     <div class="display">
       <div class="container"><form action="/editprofile" method="post">

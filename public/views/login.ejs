@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/navbar.css">
 </head>
 <body>
+    <%- include('Fcart.ejs', {totalQ: totalQ}) -%>
     <%- include('menu.ejs', {level: level, username: username}) -%>
     <div class="container">
         <h1>BookE-Com</h1>

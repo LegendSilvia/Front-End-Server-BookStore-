@@ -165,6 +165,7 @@ app.get("/register", async (req, res) => {
             bTypes: response2.data,
             level: req.cookies.level,
             username: req.cookies.username,
+            totalQ: getTotalQuantity(req.cookies.itemIds),
         });
     } catch (err) {
         console.error(err);
@@ -197,6 +198,7 @@ app.get("/login", async (req, res) => {
             bTypes: response2.data,
             level: req.cookies.level,
             username: req.cookies.username,
+            totalQ: getTotalQuantity(req.cookies.itemIds),
         });
     } catch (err) {
         console.error(err);
@@ -348,6 +350,7 @@ app.get("/book/:id", async (req, res) => {
             book: response.data,
             level: req.cookies.level,
             username: req.cookies.username,
+            totalQ: getTotalQuantity(req.cookies.itemIds),
         });
     } catch (err) {
         console.error(err);
