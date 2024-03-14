@@ -1,1 +1,1 @@
-# Front-End
+# Project for education
