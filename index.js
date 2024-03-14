@@ -100,6 +100,21 @@ app.get("/", async (req, res) => {
     }
 });
 
+app.get("/bookstore", async (req, res) => {
+    try {
+        const response = await axios.get(base_url + "/books");
+        res.render("main", {
+            books: response.data,
+            level: req.cookies.level,
+            username: req.cookies.username,
+            totalQ: getTotalQuantity(req.cookies.itemIds),
+        });
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Error Access Root Web");
+    }
+});
+
 app.get("/register", async (req, res) => {
     try {
         res.render("sigup", {
@@ -494,7 +509,7 @@ app.get("/delete/:id", async (req, res) => {
                 } else {
                     console.log("File is deleted.");
                 }
-            }
+            }  
         );
         res.redirect("/books");
     } catch (err) {
