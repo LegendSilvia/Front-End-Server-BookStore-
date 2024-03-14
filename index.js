@@ -124,7 +124,7 @@ app.get("/profile/:id", async (req, res) => {
         const response = await axios.get(base_url + "/order/" + req.params.id);
         const response2 = await axios.get(base_url + "/orderline/" + req.params.id);
         const response3 = await axios.get(base_url + "/bTypes");
-        res.render("profileOrder", {
+        res.render("ProfileOrder", {
             bTypes: response3.data,
             ReqInfo: response2.data,
             books: response.data,
@@ -144,7 +144,7 @@ app.get("/profile", async (req, res) => {
         const response2 = await axios.get(base_url + "/users/" + req.cookies.id);
         const response = await axios.get(base_url + "/orderheader/" + req.cookies.id);
 
-        res.render("profile", {
+        res.render("Profile", {
             bTypes: response3.data,
             profile: response2.data,
             order: response.data,
