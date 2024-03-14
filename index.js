@@ -10,8 +10,8 @@ const cookieParser = require("cookie-parser");
 const { count } = require("console");
 const { redirect, cookie, render } = require("express/lib/response");
 
-const base_url = "http://localhost:3000";
-// const base_url = "http://node59449-book-ecom.proen.app.ruk-com.cloud";
+// const base_url = "http://localhost:3000";
+const base_url = "http://node59449-book-ecom.proen.app.ruk-com.cloud";
 
 app.set("views", path.join(__dirname, "/public/views"));
 app.set("view engine", "ejs");
