@@ -2,6 +2,12 @@
 
 This repository contains simple Front-End-Server used in E-Com Website Project for self educate
 
+Features
+- Sign-in, Sign-up
+- Dynamic Category
+- Cart System
+- Management Page for Admin
+
 ---
 
 ## 🔗 For Back-End Server
