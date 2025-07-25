@@ -20,7 +20,7 @@ Features
 
 ## 📦 Stack
 
-| ประเภท      | เทคโนโลยี                   |
+| Type      | Technology                   |
 | ----------- | --------------------------- |
 | Language    | JavaScript (Node.js)        |
 | Server      | Express.js                  |
