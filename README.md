@@ -1,7 +1,7 @@
 # 🚀 Front-end Server for E-com
 
 This repository contains simple Front-End-Server used in E-Com Website Project for self educate
-/nThis project made during second semester of the 2nd year in KMUTNB
+\tThis project made during second semester of the 2nd year in KMUTNB
 
 Features
 - Sign-in, Sign-up
