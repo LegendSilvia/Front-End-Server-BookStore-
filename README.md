@@ -1,4 +1,16 @@
-# Project for education
+# 🚀 Front-end Server for E-com
+
+This repository contains simple Front-End-Server used in E-Com Website Project for self educate
+
+---
+
+## 🔗 For Back-End Server
+
+- **URL**: https://github.com/LegendSilvia/Back-End-Server-BookStore
+
+---
+
+## 📦 Stack
 
 | ประเภท      | เทคโนโลยี                   |
 | ----------- | --------------------------- |
@@ -8,6 +20,3 @@
 | API Caller  | Axios                       |
 | Middleware  | body-parser, cookie-parser  |
 | File Upload | Multer                      |
-
-For Back-End Server
-https://github.com/LegendSilvia/Back-End-Server-BookStore
